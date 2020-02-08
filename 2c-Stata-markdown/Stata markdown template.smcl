@@ -1,0 +1,80 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\nchako\Documents\GitHub\RT2_DC_2019\2c-Stata-markdown\Stata markdown template.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}13 Sep 2019, 14:52:58
+{txt}
+{com}. //_1
+. * Write stata code inside chunks
+. sysuse auto, clear
+{txt}(1978 Automobile Data)
+
+{com}. tab mpg
+
+    {txt}Mileage {c |}
+      (mpg) {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         12 {c |}{res}          2        2.70        2.70
+{txt}         14 {c |}{res}          6        8.11       10.81
+{txt}         15 {c |}{res}          2        2.70       13.51
+{txt}         16 {c |}{res}          4        5.41       18.92
+{txt}         17 {c |}{res}          4        5.41       24.32
+{txt}         18 {c |}{res}          9       12.16       36.49
+{txt}         19 {c |}{res}          8       10.81       47.30
+{txt}         20 {c |}{res}          3        4.05       51.35
+{txt}         21 {c |}{res}          5        6.76       58.11
+{txt}         22 {c |}{res}          5        6.76       64.86
+{txt}         23 {c |}{res}          3        4.05       68.92
+{txt}         24 {c |}{res}          4        5.41       74.32
+{txt}         25 {c |}{res}          5        6.76       81.08
+{txt}         26 {c |}{res}          3        4.05       85.14
+{txt}         28 {c |}{res}          3        4.05       89.19
+{txt}         29 {c |}{res}          1        1.35       90.54
+{txt}         30 {c |}{res}          2        2.70       93.24
+{txt}         31 {c |}{res}          1        1.35       94.59
+{txt}         34 {c |}{res}          1        1.35       95.95
+{txt}         35 {c |}{res}          2        2.70       98.65
+{txt}         41 {c |}{res}          1        1.35      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         74      100.00
+{txt}
+{com}. histogram mpg
+{txt}(bin={res}8{txt}, start={res}12{txt}, width={res}3.625{txt})
+{res}{txt}
+{com}. graph export "whatever.png", replace
+{txt}(file whatever.png written in PNG format)
+
+{com}. //_2q
+. qui reg price headroom
+{txt}
+{com}. est sto reg1
+{txt}
+{com}. qui regress price headroom trunk
+{txt}
+{com}. est sto reg2
+{txt}
+{com}. qui regress price headroom trunk foreign
+{txt}
+{com}. est sto reg3
+{txt}
+{com}. esttab reg1 reg2 reg3,///
+{err}option {bf:/} not allowed
+{txt}{search r(198), local:r(198);}
+
+end of do-file
+r; t=4.21 14:53:02
+{com}.         
+.         {c )-}
+{txt}r; t=4.21 14:53:02
+
+{com}.         
+. *============================== THE END =======================================*
+. 
+{txt}end of do-file
+
+r; t=4.30 14:53:02
+{com}. clear
+{txt}r; t=0.02 15:05:57
+
+{com}. exit
