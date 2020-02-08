@@ -1,4 +1,7 @@
 # Dynamic Documents in Stata
+% DocumentTitle
+% Author
+% Date
 
  Hello world!
 
@@ -10,5 +13,26 @@
 
 ```{s}
 	* Write stata code inside chunks
+	sysuse auto, clear
+	tab mpg
+	histogram mpg
+	graph export "whatever.png", replace
 ```
 
+![figure caption](whatever.png)
+
+```{s/}
+	qui reg price headroom
+	est sto reg1
+	qui regress price headroom trunk
+	est sto reg2
+	qui regress price headroom trunk foreign
+	est sto reg3
+	esttab reg1 reg2 reg3, ///
+	replace ///
+	label se///
+	nomtitles
+```
+```{s}
+	Today is `s c(current_date)`
+```
