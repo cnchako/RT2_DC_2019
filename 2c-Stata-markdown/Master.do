@@ -12,7 +12,7 @@
 	PART 0: Select sections to run
 *******************************************************************************/
 
-	local packages		1
+	local packages		0
 	local paths			1
 	local document		1
 
@@ -41,11 +41,11 @@
 	if `paths' {
 
 		* Tell Stata where to find the relevant programs	
-		whereis pdflatex 			"ADD/PATH/HERE"
-		whereis pandoc 				"ADD/PATH/HERE"
+		whereis pdflatex 			"C:\Users\nchako\AppData\Local\Programs\MiKTeX 2.9\miktex\bin\x64\pdflatex.exe"
+		whereis pandoc 				"C:\Users\nchako\AppData\Local\Pandoc\pandoc.exe"
 		
 		* Workshop folder
-		global	reusable_analytics	"ADD/PATH/HERE/wb_reusable_analytics/02b-Stata-markdown"
+		global	reusable_analytics	"C:\Users\nchako\Documents\GitHub\RT2_DC_2019\2c-Stata-markdown"
 	}
 	
 /*******************************************************************************
